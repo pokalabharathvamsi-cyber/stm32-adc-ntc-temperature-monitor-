@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "author": "Harshini K",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-st-nucleo-c031c6",
+      "id": "nucleo",
+      "top": -18.37,
+      "left": -48.98,
+      "attrs": {}
+    },
+    { "type": "wokwi-led", "id": "led1", "top": 34.8, "left": 349.4, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc1",
+      "top": 194.6,
+      "left": -240.6,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "$serialMonitor:TX", "nucleo:PA3", "", [] ],
+    [ "$serialMonitor:RX", "nucleo:PA2", "", [] ],
+    [ "led1:A", "nucleo:PB6", "green", [ "v0" ] ],
+    [ "led1:C", "nucleo:GND.6", "green", [ "v0" ] ],
+    [ "ntc1:GND", "nucleo:GND.5", "black", [ "h0" ] ],
+    [ "ntc1:VCC", "nucleo:3V3.2", "red", [ "h0" ] ],
+    [ "ntc1:OUT", "nucleo:A0", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
